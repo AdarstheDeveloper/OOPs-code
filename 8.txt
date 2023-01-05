@@ -1,0 +1,35 @@
+﻿				PROGRAM-8
+AIM:-
+Write a program to find the sum of two numbers declared in a class and display the numbers and sum using friend class.
+SOURCE CODE:-
+#include <iostream>
+ 
+class Base {
+  private:
+  int Num1 = 5;
+  int Num2 = 6;
+  public:
+  Base () {}
+  Base(int m, int n) {
+      Num1 = m; Num2 = n;
+  }
+  friend class frnd;
+};
+ 
+class frnd {
+  public:
+  void sum(Base &t) {
+      std::cout << t.Num1 << " + " << t.Num2 << " = " << t.Num1 + t.Num2 << "\n";
+  }
+};
+ 
+int main() {
+    Base b1;
+    Base b2(1,2);
+    frnd B1;
+    B1.sum(b1);
+    B1.sum(b2);
+    return 0;
+}
+OUTPUT:-
+

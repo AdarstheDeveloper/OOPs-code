@@ -1,0 +1,28 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721 
+PROGRAM-13
+AIM: Write a program to overload unary increament (++) operator.
+ 
+SOURCE CODE:
+#include<iostream>
+using namespace std;
+class Int{
+    int integer;
+    public:
+        Int(int i=0){ integer=i; }
+        Int operator++(){ ++integer; return *this; }  
+        Int operator++(int){ Int temp(*this); ++integer; return temp; }  
+        void display(){ cout<<"value of int is : "<<integer<<endl; }
+        void set(int i){ integer=i; }
+};
+int main(){
+    Int i1(2);
+    i1.display();
+    (++i1).display();  
+    (i1++).display();  
+    i1.display();
+    return 0;
+}
+ 
+ 
+OUTPUT:
+

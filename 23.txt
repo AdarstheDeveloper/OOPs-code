@@ -1,0 +1,27 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-23
+AIM: Write a program to illustrate how to define and declare a class template for reading two data items from the keyboard and to find their sum.
+ 
+SOURCE CODE:
+#include <iostream>
+using namespace std;
+ template<class t1,class t2>  // defining a class template
+void sum(t1 a,t2 b) {        //declaring a class template
+    cout<<"The sum is="<<a+b<<endl;
+}
+ int main()
+{
+    int a,b;
+    float x,y;
+    cout<<"Enter two integer data: ";
+    cin>>a>>b;
+    sum(a,b); 
+    cout<<"Enter two float data: ";
+    cin>>x>>y;
+    sum(x,y);      
+}
+ 
+ 
+OUTPUT:
+
+ 

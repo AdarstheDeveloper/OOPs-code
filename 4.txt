@@ -1,0 +1,57 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-4
+AIM: Create a class TIME with members hours, minutes and seconds. Take input, add two-time objects and passing objects to function and display the result.
+ 
+SOURCE CODE:
+#include<iostream>
+#include<iomanip>
+using namespace std;
+class Time{
+ int hrs;
+ int min;
+ int sec;
+ public:
+ Time(int h,int m,int s){
+ hrs=h;
+ min=m;
+ sec=s;
+ }
+ void add(Time t)
+ {
+ sec+=t.sec;
+ min+=t.min;
+ hrs+=t.hrs;
+ if(sec>60)
+ {
+ sec-=60;
+ min++;
+ }
+ if(min>60)
+ {
+ min-=60;
+ hrs++;
+ }
+ if(hrs>24)
+ hrs-=24;
+ }
+ void display()
+ {
+ cout<<"\nTime is "<<setw(2)<<setfill('0')<<hrs<<":"<<setw(2)<<setfill('0'
+)<<min<<":"<<setw(2)<<setfill('0')<<sec<<endl;
+ }
+};
+int main(){
+ int h,m,s;
+ cout<<"Enter Time A: ";
+ cin>>h>>m>>s;
+ Time t1(h,m,s);
+ cout<<"Enter Time B: ";
+ cin>>h>>m>>s;
+ Time t2(h,m,s);
+ cout<<"After adding: ";
+ t1.add(t2);
+ t1.display();
+ return 0;
+}
+OUTPUT:
+

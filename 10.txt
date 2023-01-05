@@ -1,0 +1,54 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-10
+AIM: To write a program to generate a Fibonacci series using copy constructor.
+ 
+SOURCE CODE:
+#include<iostream>
+using namespace std;
+class fib
+{
+  int n;  
+  public:
+ fib(int n)
+ {
+   this->n=n;
+ }
+  //copy constructor
+  fib( fib &n1)
+  {
+        this->n=n1.n;
+  }
+void cal()
+{
+    int a=0;
+    int b=1;
+    int c;
+    cout<<a<<" "<<b<<" "; 
+    for(int i=0;i<n;i++)
+    {
+        int c=a+b;
+        cout<<c<<" ";
+        a=b;
+        b=c;
+    }
+}
+};
+int main()
+{
+    int n;
+    cout<<"Enter the number of terms"<<endl;
+    cin>>n;
+    fib n1(n);
+    fib n2=n1;
+    fib n3(n1); //declaring copy constructor.
+    n2.cal();
+    cout<<endl;
+    //n3.cal();
+}
+ 
+OUTPUT:
+
+ 
+ 
+ 
+ 

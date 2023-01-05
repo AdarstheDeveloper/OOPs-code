@@ -1,0 +1,76 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-16
+AIM: Create class first with data members book no, book name and member function getdata() and putdata(). Create a class second with data members author name, publisher and members getdata() and showdata(). Derive a class third from first and second with data member no of pages and year of publication. Display all these information using array of objects of the third class.
+ 
+SOURCE CODE:
+#include<iostream>
+using namespace std;
+class book{ 
+  int  bookno;
+char bookname[100];
+public:
+void getdata1(){
+cout<<"Enter Book No"<<endl;
+cin>>bookno;
+cout<<"Enter Book Name"<<endl;
+cin>>bookname;
+}
+public:
+void showdata1()
+{
+cout<<"Book No is: "<<bookno<<endl;
+cout<<"Book Name is: "<<bookname<<endl;
+}
+};
+class book2{
+char author[100];
+char publisher[100];
+public:
+void getdata2(){
+cout<<"Enter Author"<<endl;
+cin>>author;
+cout<<"Enter Publisher"<<endl;
+cin>>publisher;
+}
+public:
+void showdata2()
+{
+cout<<"Author is: "<<author<<endl;
+cout<<"Publisher is: "<<publisher<<endl;
+}
+};
+class book3 : book, book2
+{
+int pages;
+int year;
+public:
+void getdata3()
+{   getdata1();
+getdata2();
+cout<<"Enter No of Pages"<<endl;
+cin>>pages;
+cout<<"Enter year of publication"<<endl;
+cin>>year;
+}
+public:
+void showdata3()
+{   showdata1();
+showdata2();
+cout<<"No of Pages are : "<<pages<<endl;
+cout<<"Year of publication: "<<year<<endl;
+}
+};
+int main(){   
+int n;
+cout<<"Enter the no of books"<<endl;
+cin>>n;
+book3 obj[6];
+for(int i=0;i<n;i++)
+{
+cout<<endl;    
+obj[i].getdata3();
+obj[i].showdata3();
+}
+}
+OUTPUT:
+

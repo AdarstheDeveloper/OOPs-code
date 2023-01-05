@@ -1,0 +1,153 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-12
+AIM: To implement a class string containing the following functions:
+a)Overload + operator to carry out the concatenation of strings.
+b)Overload = operator to carry out string copy. 
+c)Overload <= operator to carry out the comparison of strings.
+d)Function to display the length of string. 
+e)Function tolower() to convert upper case to lower case. 
+f)Function toupper() to convert lower case letters to upper case.
+ 
+SOURCE CODE:
+#include <iostream>
+#include <string.h>
+using namespace std;
+class String{
+ char s[100];
+ int size;
+ public:
+ String(){
+ strcpy(s,"");
+ size=0;
+ }
+ String(char str[]){
+ size=strlen(str);
+ strcpy(s, str);
+ }
+ char *operator+(char *s1){
+ size = strlen(s) + strlen(s1);
+ strcat(s, s1);
+ return s;
+ }
+ char *operator=(char *s1){
+ size = strlen(s1);
+ strcpy(s, s1);
+ return s;
+ }
+ bool operator<=(char *s1){
+ return strcmp(s, s1);
+ }
+ void display(){
+ cout <<"\nString is : "<< s << endl;
+ }
+ void length(){
+ cout <<"Length is "<< size << endl;
+ }
+ void tolower(){
+ int i;
+ for (i = 0; i < size; i++){
+ if (s[i] >= 65 && s[i] <= 90)
+ s[i] += 32;
+ }
+ display();
+ }
+ void toupper(){
+ int i;
+ for (i = 0; i < size; i++)
+ {
+ if (s[i] >= 97 && s[i] <= 122)
+ s[i] -= 32;
+ }
+ display();
+ }
+};
+int main(){
+ char c[50];
+ int n;
+ cout <<"Enter string to be stored in class - ";
+ cin >> c;
+ String s(c);
+ while (1){
+ fflush(stdin);
+ char d[50];
+ cout <<"\n\nSelect which operation you want to perform: " << endl;
+ cout <<"1)String concatenation"<< endl;
+ cout <<"2)String copy"<< endl;
+ cout <<"3)String compare"<< endl;
+ cout <<"4)Length of string"<< endl;
+ cout <<"5)Convert uppercase string to lowercase"<< endl;
+ cout <<"6)Convert lowercase string to uppercase"<< endl;
+ cout <<"7)Exit\n"<< endl;
+ cin >> n;
+ switch (n)
+ {
+ case 1:
+ cout <<"\nEnter the string - ";
+ cin >> d;
+ s = s + d;
+ cout <<"\nAfter concatenation: ";
+ s.display();
+ break;
+ case 2:
+ cout <<"\nEnter the string - ";
+ cin >> d;
+ s = d;
+ cout <<"\nAfter copying: ";
+ s.display();
+ break;
+ case 3:
+ cout <<"\nEnter the string - ";
+ cin >> d;
+ if (!(s <= d)){
+ cout <<"\nStrings are equal";
+ }
+ else{
+ cout <<"\nStrings are not equal";
+ }
+ break;
+ case 4:
+ s.length();
+ break;
+ case 5:
+ s.tolower();
+ break;
+ case 6:
+ s.toupper();
+ break;
+ case 7:
+ exit(0);
+ }
+ }
+ return 0;
+}
+ 
+ 
+ 
+ 
+OUTPUT:
+
+ 
+
+ 
+
+ 
+
+
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

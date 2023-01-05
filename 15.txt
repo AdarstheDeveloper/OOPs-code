@@ -1,0 +1,64 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-15
+AIM: Create a base class basic_info with data members name, roll numbers, sex, and two member function getdata and display.Derive a class physical_fit from basic_info which has data members height and weight and member functions getdata and display. Display all the information using object of derived class.
+ 
+SOURCE CODE:
+#include<iostream>
+using namespace std;
+class basic_info{
+char name[100];
+int rollno;
+char sex[100];
+public:
+void getdata( ){
+cout<<"Enter a name";
+cout<<endl;
+cin>>name;
+cout<<endl;
+cout<<"Enter Roll no";
+cout<<endl;
+cin>>rollno;
+cout<<endl;
+cout<<" Enter Sex";
+cout<<endl;
+cin>>sex;
+cout<<endl;
+}
+public:
+void display( ){
+cout<<name<<"\t";
+cout<<rollno<<"\t";
+cout<<sex<<"\t";
+}
+};
+class physical_fit:private basic_info
+{
+private:
+int height ;
+int weight;
+public:    
+void getdata1(){
+getdata();
+cout<<"Enter Height";
+cout<<endl;
+cin>>height; 
+cout<<endl;
+cout<<"Enter weight ";
+cout<<endl;
+cin>>weight;
+cout<<endl;
+}
+public:
+void display1( ){
+ display( );
+cout<<height<<"\t";
+cout<<weight<<" ";
+}
+};
+int main(){
+physical_fit a;
+a.getdata1();
+a.display1();
+return 0;}
+OUTPUT:
+

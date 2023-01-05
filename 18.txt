@@ -1,0 +1,53 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-18
+AIM: Create a base class in C++ called shape. Use this class to store two double-type values that could be used to compute the area of figures. Derive two specific classes called triangle and rectangle from the base shape. Add to the base class a member function get_data () to initialize base class data members and another member function display_area () to compute and display the area of figures. Make display_area () a virtual function and redefine this function in the derived classes to suit their requirements. Using these classes, design a program that will accept the dimensions of a triangle or a rectangle interactively and display the area.
+ 
+SOURCE CODE:
+#include<iostream>
+using namespace std;
+#include<string.h>
+class Shape{
+public:
+double height,base;
+Shape(){
+height=0;
+base=0;
+}
+void get_data()
+{
+cout<<"Enter height and base to compute are :";
+cin>>height>>base;
+}
+virtual void display_area(){
+}
+};
+class Triangle : public Shape
+{
+public:
+void display_area(){
+cout<<"Area of Triangle = "<<(height*base)/2;
+}
+};
+class Rectangle : public Shape
+{
+public:
+void display_area()
+{
+cout<<"Area of Rectangle = "<<height*base;
+}
+};
+int main(){
+Shape *s;
+Triangle t;
+t.get_data();
+s=&t;
+s->display_area();
+cout<<endl;
+Rectangle r;
+r.get_data();
+s=&r;
+s->display_area();
+}
+ 
+OUTPUT:
+

@@ -1,0 +1,60 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-17
+AIM: Design three classes STUDENT, EXAM and RESULT. The STUDENT class has data members such as roll no, name. create a class EXAM by inheriting the STUDENT class. The EXAM class adds data members representing the marks scored in six subjects. Derive the RESULT from the EXAM class and has its own data members such as total marks. Write a program to model this relationship.
+ 
+SOURCE CODE:
+#include<iostream>
+using namespace std; 
+class STUDENT
+{ 
+private: 
+int roll_no; 
+string name; 
+public: 
+STUDENT()
+{ 
+} 
+STUDENT(int roll, string n)
+{ 
+roll_no = roll; name = n; 
+}
+}; 
+class EXAM: public STUDENT
+{ 
+private: int * arr; 
+int number_of_subjects; 
+public: EXAM()
+{ 
+number_of_subjects  = 6;
+arr = new int[number_of_subjects]; 
+} 
+int getMarks()
+{ 
+cout<<"Enter student's marks for six subject\n";
+for(int i=0; i<6; i++)
+{ 
+cout<<"Sub "<<(i+1)<<":";
+cin>>arr[i]; 
+} 
+int sum = 0;
+for(int i=0; i<6; i++)
+{ 
+sum += arr[i]; 
+} return sum; 
+} 
+}; 
+class RESULT: public EXAM
+{ 
+private: int total_marks;
+public: int displayTotalMarks()
+{ 
+int  p = getMarks(); 
+} 
+}; 
+int main()
+{ 
+RESULT t; 
+cout<<"The total marks is \t"<<t.getMarks();
+}
+OUTPUT:
+

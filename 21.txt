@@ -1,0 +1,30 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-21
+AIM: Write a program to define the function template for calculating the square of given number with different datatypes.
+ 
+SOURCE CODE:
+#include <iostream>
+using namespace std;
+template <class T>
+inline T square(T x)
+{
+   return x*x;
+};
+ 
+int main()
+{
+   int    i, isquare;
+   float  f, xsquare;
+   cout<<"Enter 1st number: "; 
+   cin>>i;
+   cout<<"Enter 2nd number: ";
+   cin>>f;
+   isquare = square<int>(i);
+   cout <<"square of "<< i << ": " << isquare << endl;
+ 
+   xsquare = square<float>(f);
+   cout <<"square of "<< f << ": " << xsquare << endl;
+    return 0;
+}
+OUTPUT:
+

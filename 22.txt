@@ -1,0 +1,28 @@
+﻿				PROGRAM-22
+AIM:-
+.Write a program to illustrate how Template function can be overloaded.
+ 
+SOURCE CODE:-
+#include <iostream>
+template <typename T>
+void swap(T& a, T& b) {
+    T temp = a;    a = b;
+    b = temp;
+}
+template <typename T>
+void swap(T& a) {
+    std::cout << "Only one element{" << a << "}is passed";
+}
+int main() {
+    int a = 10,b = 20;
+    std::cout << "Before:\n\t";
+    std::cout << "A :" << a <<" , B :" << b << std::endl;
+    swap(a,b);
+    std::cout << "After:\n\t";
+    std::cout << "A :" << a <<" , B :" << b << std::endl;
+    std::cout << "After Overlaoding:\n\t";
+    swap(a);
+    return 0;}
+ 
+OUTPUT:-
+

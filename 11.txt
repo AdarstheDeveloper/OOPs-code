@@ -1,0 +1,50 @@
+﻿PROGRAM-11
+AIM:-
+Create a class which keep track of number of its instances. Use static data member, constructors and destructors to maintain updated information about active objects.
+THEORY:-
+Static data members are class members that are declared using static keywords. A static member has certain special characteristics. These are:
+1)Only one copy of that member is created for the entire class and is shared by all the objects of that class, no matter how many objects are created.
+2)It is initialized before any object of this class is being created, even before main starts.
+3)It is visible only within the class, but its lifetime is the entire program
+Syntax
+static data_type data_member_name;
+Constructor is a special member function of a class and shares the same name as of class, which means the constructor and class have the same name. Constructor is called by the compiler whenever the object of the class is created, it allocates the memory to the object and initializes class data members by default values or values passed by the user while creating an object. Constructors don’t have any return type because their work is to just create and initialize an object.
+Syntax
+class_name({parameters})
+  {
+    // constructor body
+  }
+Destructor is just the opposite function of the constructor. A destructor is called by the compiler when the object is destroyed and its main function is to deallocate the memory of the object. Destructor has the same as of the class with prefix tilde(~) operator and it cannot be overloaded as the constructor. Destructors take no argument and have no return type and return value.
+Syntax
+~class_name();
+ 
+SOURCE CODE:-
+#include <iostream>
+using namespace std;
+class test {
+    int objNo;
+    static int objCnt;
+    public:
+        test()        {
+            objNo = ++objCnt;
+        }
+        ~test()        {
+            --objCnt;        }
+        void printObjNumber(void)        {
+            cout << "object number :" << objNo << "\n";        }
+        static void printObjCount(void)       {
+            cout << "Active object count:" << objCnt<< "\n";        }
+};
+int test::objCnt;
+int main() {
+    test t1, t2;
+    test::printObjCount();
+    test t3;
+    test::printObjCount();
+    t1.printObjNumber();
+    t2.printObjNumber();
+    t3.printObjNumber();
+    return 0; }
+OUTPUT:-
+ 
+

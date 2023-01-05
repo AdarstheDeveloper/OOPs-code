@@ -1,0 +1,35 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721 
+PROGRAM-30
+AIM: Write a program to perform deletion of white spaces such as horizontal tab, vertical tab, space, line feed, new line and carriage return from a text file and store the contents of the file without the white spaces on another file.
+ 
+SOURCE CODE:
+#include <iostream>
+#include<fstream>
+using namespace std;
+int main(){
+ifstream file("prev.txt");
+ofstream f("next.txt");;
+char ch;
+int c= file.peek();
+while(!file.eof())
+{
+ch=file.get();
+if(ch == ' ' || ch == '\t' || ch == '\n' ||
+ch == '\r' || ch == '\f' || ch == '\v'||ch=='\0')
+{
+}
+else{
+ 
+f.put(ch);
+}
+c= file.peek();
+}
+cout<<"program executed"<<endl;
+return 0;
+}
+OUTPUT:
+
+ 
+
+ 
+

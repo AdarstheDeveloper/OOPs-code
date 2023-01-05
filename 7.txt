@@ -1,0 +1,28 @@
+﻿				PROGRAM-7
+AIM:-
+Write a program to demonstrate the use of friend function with Inline assignment.
+THEORY:-
+INLINE FUNCTION:- This is done by adding inline keyword to the function. This make the function to replace the code wherever the function is called in compile time. Any new changes made to this function will not reflect until it is complied again.
+ 
+SOURCE CODE:-
+#include <iostream>
+using namespace std;
+class Base {
+    private:
+        int N =1;
+    public:
+    Base() {
+    cout << "This is Base Class\n";
+    }
+    friend void fun1(Base);
+};
+inline void fun1(Base b) {
+    cout << "This is a inline firend function";
+    cout << "\n Hidden Number:" << b.N;
+}
+int main() {
+    Base b1;
+    fun1(b1);
+    return 0;}
+OUTPUT:-
+

@@ -1,0 +1,51 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-9
+AIM:  Write a program to perform addition of two complex numbers using constructor overloading. The first constructor which takes no argument is used to create objects which are not initialized, second which takes one argument is used to initialize real and imaginary parts to equal values and third which takes two argument is used to initialized real and imag to two different values.
+ 
+SOURCE CODE:
+#include <iostream>
+using namespace std;
+class complex
+{
+ int real;
+ int imag;
+ public:
+ complex(int x, int y) 
+ { 
+ real=x;
+ imag=y;
+ }
+ complex(int x)
+ {
+ real=x;
+ imag=x;
+ }
+ complex()
+ {
+ real=0;
+ imag=0;
+ }
+ void add(complex c1,complex c2)
+ {
+ real=c1.real+c2.real;
+ imag=c1.imag+c2.imag;
+ }
+ void printnumber()
+ {
+ cout<<real<<" + "<<imag<<"i"<<endl;
+ }
+};
+int main()
+{
+ complex c1(6,9),c2(10),c3; 
+ c1.printnumber();
+ c2.printnumber();
+ cout<<"Sum of these two numbers is: ";
+ c3.add(c1,c2);
+ c3.printnumber();
+ return 0; 
+}
+OUTPUT:
+
+ 
+ 

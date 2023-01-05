@@ -1,0 +1,33 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-20
+AIM:Write a program to define the function template for swapping two items of various datatypes such as integer and float.
+ 
+SOURCE CODE:
+#include <iostream>
+using namespace std;
+template <class T>
+int swap_numbers(T& x, T& y){
+	T t;
+	t = x;
+	x = y;
+	y = t;
+	return 0;
+}
+int main(){
+	int a, b;
+	cout<<"Enter the integers: ";
+	cin>>a>>b;
+	swap_numbers(a, b);
+	cout<<"Swapped: ";
+	cout << a << " " << b << endl;
+	cout<<endl;
+	float f,d;
+	cout<<"Enter the numbers: ";
+	cin>>f>>d;
+	swap_numbers(f, d);
+	cout<<"Swapped: ";
+	cout << f << " " << d << endl;
+	return 0;
+}
+OUTPUT:
+

@@ -1,0 +1,77 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721 
+PROGRAM-19
+AIM: To create a class called LIST with two pure virtual functions store () and retrieve (). To store a value call store and to retrieve, call retrieve function. Derive two classes stack and queue from it and override store and retrieve.
+ 
+SOURCE CODE
+#include <iostream>
+using namespace std;
+const int MAX = 100;
+int list[MAX];
+int pos = 0;
+class List
+{
+ public:
+ virtual void store()
+ {
+ cout <<"\nList class store() called"<< endl;
+ cout <<"Enter value: ";
+ cin >> list[pos++];
+ cout <<"Value stored: "<< list[pos - 1] << endl;
+ }
+ virtual void retrieve()
+ {
+ int i;
+ cout <<"\nList class retrieve() called."<< endl;
+ cout <<"Enter the index: ";
+ cin >> i;
+ cout <<"Value retrieved: "<< list[i] << endl;
+ }
+};
+class STACK : public List
+{
+ public:
+ void store()
+ {
+ cout <<"\nSTACK class store() called."<< endl;
+ cout<<"Enter the value: ";
+ cin >> list[pos++];
+ cout <<"Value stored: "<< list[pos - 1] << endl;
+ }
+ void retrieve()
+ {
+ int i;
+ cout <<"\nSTACK class retrieve() called."<< endl;
+ cout <<"Enter the index: ";
+ cin >> i;
+ cout <<"Value retrieved: "<< list[i] << endl;
+ }
+};
+class QUEUE : public List{
+ public:
+ void store(){
+ cout <<"\nQUEUE class store() called."<< endl;
+ cout <<"Enter the value: ";
+ cin >> list[pos++];
+ cout <<"Value stored: "<< list[pos - 1] << endl;
+ }
+ void retrieve(){
+ int i;
+ cout <<"\nQUEUE class retrieve() called."<< endl;
+ cout <<"Enter the index: ";
+ cin >> i;
+ cout <<"Value retrieved: "<< list[i] << endl;
+ }
+};
+int main(){
+ List *list_ptr;
+ STACK s;
+ QUEUE q;
+ list_ptr = &s;
+ s.store();
+ q.store();
+ list_ptr->store();
+ list_ptr->retrieve();
+ return 0;
+}
+OUTPUT
+

@@ -1,0 +1,36 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-14
+AIM: Write a program to overload new and delete operator.
+ 
+SOURCE CODE:
+#include<iostream>
+#include<stdlib.h>
+using namespace std;
+class test{
+    string str;
+    int i;
+    public:
+        test(){ str=""; i=0; }
+        test(string str, int i){ 
+        this->str=str; this->i=i;
+ }
+ void display(){ 
+cout<<"string is: "<<str<<endl<<"integer is: "<<i<<endl; 
+}
+        void *operator new(size_t size){  
+            void *ptr= malloc(size);  
+            return ptr;
+}
+void operator delete(void *ptr){ 
+            free(ptr);
+            cout<<"memory freed"<<endl;
+        }
+};
+int main(){
+    test *obj = new test("mystring", 1);
+    obj->display();
+    delete(obj);
+    return 0;
+}
+OUTPUT:
+

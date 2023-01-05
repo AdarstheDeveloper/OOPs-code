@@ -1,0 +1,58 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-24
+AIM: Write a program to demonstrate the use of special functions, constructors and destructors in the class template. The program is used to find the bigger of two entered numbers.
+ 
+SOURCE CODE:
+#include<iostream>
+using namespace std;
+class B;
+class A
+{
+ int a;
+ public:
+ A(int value){
+ cout<<"CONSTRUCTOR CALLED FOR CLASS A!!"<<endl;
+ a=value;
+ }
+ ~A(){
+cout<<"DESTRUCTOR CALLED FOR CLASS A!!"<<endl;
+}
+friend void compare(A,B);
+};
+class B{
+ int b;
+ public:
+ B(int value){
+cout<<"CONSTRUCTOR CALLED FOR CLASS            B!!"<<endl;
+b=value;
+}
+~B(){
+cout<<"DESTRUCTOR CALLED FOR CLASS B!!"<<endl;
+ }
+ friend void compare(A,B);
+};
+void compare(A a1,B b1)
+{
+ if(a1.a > b1.b)
+ cout<<a1.a<<" is greater than "<<b1.b<<endl;
+ else if(a1.a < b1.b)
+ cout<<a1.a<<" is smaller than "<<b1.b<<endl;
+ else
+ cout<<a1.a<<" is equal to "<<b1.b<<endl;
+}
+int main()
+{
+ int n1,n2;
+ cout<<"Enter first number: ";
+ cin>>n1;
+ A a(n1);
+ cout<<"Enter second number: ";
+ cin>>n2;
+ B b(n2);
+ compare(a,b);
+ return 0;
+}
+OUTPUT:
+
+ 
+ 

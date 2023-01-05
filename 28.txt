@@ -1,0 +1,24 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-28
+AIM: Write a program to copy the content of a file into another.
+ 
+SOURCE CODE:
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+ifstream in("Original.txt");
+ofstream f("copy.txt");
+while(!in.eof()){
+	string text;
+	getline(in, text);
+	f << text << endl;
+}
+return 0;
+}
+OUTPUT:
+
+ 
+
+ 
+ 
+ 

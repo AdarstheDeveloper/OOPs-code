@@ -1,0 +1,21 @@
+﻿Chirag Rathore 	                                                                      Enrollment Number:02314812721
+PROGRAM-26
+AIM: write a program to read a set of lines from the keyboard and to store it on a specified file.
+ 
+SOURCE CODE:
+#include<iostream>
+#include<fstream>
+#include<stdio.h>
+using namespace std;
+int main(){
+ofstream file("newfile.txt");
+string s;
+cout<<"Enter the data:- "<<endl;
+getline(cin,s);
+file<<s;
+file.close();
+}
+OUTPUT:
+
+ 
+
