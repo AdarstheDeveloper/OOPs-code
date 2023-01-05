@@ -1,0 +1,1776 @@
+﻿EXPERIMENT – 1
+
+Aim: Write a program for multiplication of two matrices using OOPs
+
+CODE
+#include <iostream>
+using namespace std;
+class Matrix {
+  private:
+  int x[10][10];
+  int row, col;
+
+ public:
+ void getMatrix(int r, int c) {
+    Matrix M1;
+    row = r;
+    col = c;
+    for (int i = 0; i < row; i++) {
+      for (int j = 0; j < col; j++) {
+        cout << "Enter x[" << i << "][" << j << "] : ";
+        cin >> x[i][j];
+      }
+    }
+  }
+
+ void putMatrix() {
+    for (int i = 0; i < row; i++) {
+      for (int j = 0; j < col; j++) {
+        cout << x[i][j] << " ";
+      }
+      cout << "\n";
+    }
+  }
+  Matrix multiply(Matrix M2) {
+    Matrix M;
+    M.row = row;
+    M.col = col;
+    for (int i = 0; i < row; i++) {
+      for (int j = 0; j < col; j++) {
+        M.x[i][j] = 0;
+        for (int k = 0; k < col; k++) {
+          M.x[i][j] = M.x[i][j] + ((x[i][k]) * (M2.x[k][j]));
+        }
+      }
+    }
+    return (M);
+  }
+};
+int main() {
+    Matrix M1, M2, M3;
+    cout << "Enter first matrix\n" << endl;
+    M1.getMatrix(2, 2);
+    cout << "\nEntersecond matrix\n" << endl;
+    M2.getMatrix(2, 2);
+    M3 = M1.multiply(M2);
+    cout << "\nMultiplying the matrices\n" << endl;
+    M3.putMatrix();
+  return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT – 2
+
+Aim: Create a class student, which has data members as name, branch, roll no, age , sex, five subjects. Display the name and percentage of student having percentage of 70% or more. Use array of objects.
+
+CODE
+#include<iostream>
+using namespace std;
+class student{
+    private:
+    char name[30],branch[25],sex[10];
+    int age,roll,m1,m2,m3,m4,m5;
+    public:
+    int p;
+void get(){
+    cout<<"Enter name, branch, sex, age and roll no.:\n";
+    cin>>name>>branch>>sex>>age>>roll;
+    cout<<"Enter marks of 5 subjects : ";
+    cin>>m1>>m2>>m3>>m4>>m5;
+    p=(m1+m2+m3+m4+m5)*100/500;
+}
+void print()
+{
+    if(p>70){
+        cout<<"Name is : "<<name<<endl;
+        cout<<"Roll no is : "<<roll<<endl;
+        }
+}
+};
+int main(){
+    student s[100];
+    int n,i;
+    cout<<"Enter the number of students : ";
+    cin>>n;
+    for(i=0;i<n;i++){
+        s[i].get();
+        }
+for(i=0;i<n;i++){
+    s[i].print();
+}
+return 0;
+}
+
+
+
+
+
+
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT – 3
+
+Aim: Using the concept of function overloading, write function for calculating the area of rectangle, triangle and circle.
+
+CODE
+#include<iostream>
+using namespace std;
+int area(int);
+int area(int,int);
+float area(float);
+float area(float,float);
+int main()
+{
+        int side,length,breadth;
+        float r,bs,ht;
+        cout<<"Enter length and breadth of rectangle:\n";
+        cin>>length>>breadth;
+        cout<<"Enter radius of circle:";
+        cin>>r;
+        cout<<"Enter base and height of triangle:\n";
+        cin>>bs>>ht;
+        cout<<"\nThe Area of rectangle is "<<area(length,breadth);
+        cout<<"\nThe Area of circle is "<<area(r);
+        cout<<"\nThe Area of triangle is "<<area(bs,ht);
+}
+int area(int length,int breadth)
+{
+    return(length*breadth);
+}
+float area(float r)
+{
+    return(3.14*r*r);
+}
+float area(float bs,float ht)
+{
+   return((bs*ht)/2);
+}
+OUTPUT:
+
+
+EXPERIMENT – 4
+
+Aim: Create a class time with members hours, minutes and seconds. Take input, ads two time objects and passing objects to function and display the result.
+
+CODE
+#include<iostream.h>
+#include<conio.h>
+#include<iomanip.h>
+class time{
+    int h,m,s;
+    public:
+    void read();
+    void print();
+    void add(time t2);
+};
+void time::read(){
+    cout<<"\nEnter hours,minutes and seconds\n";
+    cin>>h>>m>>s;
+}
+void time::print(){
+    cout<<"\nTime is-> "<<<h;
+    cout<<":"<<m;
+    cout<<":"<<s<<endl;
+}
+void time::add(time t2){
+    h=h+t2.h;
+    m=m+t2.m;
+    s=s+t2.s;
+}
+void main(){
+    clrscr();
+    time t1,t2;
+    t1.read();
+    t1.print();
+    t2.read();
+    t2.print();
+    t1.add(t2);  // member function call.
+    cout<<"\nTime1+ Time2:\n";
+    t1.print();
+    getch();
+}
+
+
+
+
+
+
+
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT – 5
+
+Aim: Write a function to find the greatest of two given numbers in two different classes using friend function. 
+
+CODE
+#include<iostream>
+using namespace std;
+class numb{
+private:
+int x, y;
+public:
+void input(){
+cout << "Enter two numbers:";
+cin >> x>>y;
+}
+friend void find(numb n);
+};
+void find(numb n){
+if (n.x > n.y){
+cout << "The largest number is:" << n.x;
+}
+else{
+cout << "The largest number is:" << n.y;
+}
+}
+int main(){
+numb n;
+n.input();
+find(n);
+return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT – 6
+
+Aim: Write a program to find the greatest of three numbers using friend function.
+
+CODE
+#include<iostream>
+using namespace std;
+class Greatest {
+    private:
+    int x, y, z;
+    public:
+    void input() {
+        cout << "Enter three numbers:\n";
+        cin >> x >> y>>z;
+     }
+    friend void find(Greatest t);
+};
+void find(Greatest t) {
+    if (t.x > t.y && t.x > t.z) {
+        cout << "The Largest number is:" << t.x;
+      } 
+    else if (t.y > t.z) {
+        cout << "The Largest number is:" << t.y;
+      } 
+    else {
+        cout << "The Largest number is:" << t.z;
+      }
+ }
+
+int main() {
+    Greatest t;
+    t.input();
+    find(t);
+    return 0;
+}
+
+OUTPUT:
+
+
+
+                           
+
+
+
+EXPERIMENT – 7
+
+Aim: Write a program to demonstrate the use of friend function with inline assignment.
+
+CODE
+#include <iostream>
+using namespace std;
+class example{
+    private:
+    int v;
+    public:
+    inline void getdata();
+    friend void show(class example);
+};
+inline void example::getdata(){
+    cout<<"Enter the value of x:"<<endl;
+    cin>>v;
+}
+inline void show(class example ex){
+    cout<<"Entered number is: "<<ex.v;
+    cout<<endl;
+}
+int main(){
+    example exa;
+    exa.getdata();
+    cout<<"Using friend function to access data of class example."<<endl;
+    show(exa);
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 8
+
+Aim : Write a program to find the sum of two numbers declared in a class and display the numbers and sum using friend class.
+
+CODE
+#include<iostream>
+using namespace std;
+
+class Addition {
+    int a,b;
+public:
+    void setValue(int x, int y) {
+        a=x;    b=y;
+    }
+    friend int sum(Addition);
+};
+
+int sum(Addition o) {
+    return o.a+o.b;
+}
+
+int main() {
+    int x,y;
+    cout << "Enter the numbers: ";
+    cin >> x >> y;
+    Addition ad;
+    ad.setValue(x,y);
+    cout << "Sum of " << x << " and " << y << " is:  " << sum(ad);
+    return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT – 9
+
+Aim: Write a program to perform addition of two complex numbers using constructor overloading. The first constructor which takes no arguments is used to create objects which are not initialized, second which takes an argument is used to initialise real and imaginary parts to equal values and third which takes two arguments is used to initialise real and imaginary to two different values.
+
+CODE
+#include <iostream>
+using namespace std;
+class Complex{
+    int real, imaginary;
+    public:
+    Complex (){
+        real = 0;
+        imaginary = 0;
+}
+Complex (int num){
+    real = num;
+    imaginary = num;
+    cout << "Complex Number : " << real << " + " << imaginary << "i" << endl;
+}
+Complex (int r, int i){
+    real = r;
+    imaginary = i;
+    cout << "1st Complex Number : " << r << " + " << i << "i" << endl;
+}
+Complex (Complex &other){
+    real = other.real;
+    imaginary = other.imaginary;
+    cout << "2nd Complex Number : " << real << " + " << imaginary << "i" << endl;
+}
+Complex sum (Complex &a, Complex &b){
+    Complex result; 
+    result.real = a.real + b.real;
+    result.imaginary = a.imaginary + b.imaginary;
+    cout << "Addition is : " << result.real << " + " << result.imaginary << "i";
+return result;
+}
+};
+int main(){
+    int r1, r2, i1, i2;
+    cout << "Enter 1st Number's Real and Imaginary part\n";
+    cin >> r1 >> i1;
+    cout << "Enter 2nd Number's Real and Imaginary part\n";
+    cin >> r2 >> i2;
+    Complex num1(r1, i1), num2(r2, i2);
+    Complex result;
+    result = result.sum(num1, num2);
+return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT – 10
+
+Aim: Write a program to generate a fibonacci series using copy constructor.
+
+CODE
+#include<iostream>
+using namespace std;
+class fibonacci{
+    private:
+    int f0,f1,fib;
+    public:
+    fibonacci(){
+        f0=0;
+        f1=1;
+        fib=f0+f1;
+        
+    }
+fibonacci (fibonacci &ptr){ //copy constructor
+    f0=ptr.f0;
+    f1=ptr.f1;
+    fib=ptr.fib;
+}
+void increment(){
+    f0=f1;
+    f1=fib;
+    fib=f0+f1;
+}
+void display(){
+    cout << fib << '\t';
+    
+}
+}; 
+int main (void){
+    fibonacci f;
+    int p;
+    cout<<"Enter how many terms you want: "<<endl;
+    cin>>p;
+    for (int i=0; i<=p;i++){
+        f.display();
+        f.increment();
+}
+}
+
+OUTPUT:
+
+
+EXPERIMENT- 11
+
+
+Aim : Create a class which keep track of number of its instances. Use static data member, constructors and destructors to maintain updated information about active objects.
+
+CODE
+#include<iostream>
+using namespace std;
+
+class A {
+    static int count;
+public:
+    A() {
+        count++;
+        cout << "\nConstructor called cout incrermented by 1\n";
+        cout << "Value of count is- " << count << endl;
+    }
+    ~A() {
+        count--;
+        cout << "\nDestructor called cout decremented by 1\n";
+        cout << "Value of count is- " << count << endl;
+    }
+};
+int A :: count;
+
+int main() {
+    A a1,a2,a3;
+    return 0;
+}
+OUTPUT:
+
+
+
+
+
+EXPERIMENT – 12
+
+Aim: Implement a class string performing the following functions:
+    1. Overload + operator to concatenate strings.
+    2. Overload = operator to carry out string copy.
+    3. Overload <= operator to carry out comparison of strings.
+    4. Function to display the length of string.
+    5. Function tolower() to convert uppercase to lowercase.
+    6. Function toupper() to convert lowercase to uppercase.
+
+
+CODE
+#include <iostream>
+#include<string.h>
+using namespace std;
+class String{
+public:
+char s[100];
+String get_string(){
+    std::cin >> s;
+    return *this;
+ }
+ char *put_string(){
+     return (char *)s;
+ }
+ // Finds length of string
+ int length(){
+ return strlen(s);
+ }
+ // Assigns original strings of one object to another
+ String operator=(const String &op)
+ {
+ strcpy(s, op.s);
+ return *this;
+ }
+ // Concatenates two strings
+ String operator+(const String &op)
+ {
+ String res;
+ res = *this;
+ strcat(res.s, op.s);
+ return res;
+ }
+ // Compares two strings based on length
+ bool operator<=(String op)
+ {
+ if (length() <= op.length())
+ return true;
+ else
+ return false;
+ }
+String tolower(){
+ for (int i = 0; i < length(); i++){
+ s[i] = std::tolower(s[i]);
+ }
+ return *this;
+ }
+String toupper(){
+ for (int i = 0; i < length(); i++){
+ s[i] = std::toupper(s[i]);
+ }
+ return *this;
+ }
+};
+int main()
+{
+ String A, B;
+ cout << "Enter the first string: ";
+ A.get_string();
+ cout << "Enter the second string: ";
+ B.get_string();
+String C = A + B;
+ cout << "\nConcatenated string: " << C.put_string() << "\n";
+cout << "String A <= String B: " << (A <= B ? "true\n" : "false\n");
+ cout << "Length of string A: " << A.length() << "\n";
+ cout << "Length of string B: " << B.length() << "\n";
+ String A_lower = A.tolower(), A_upper = A.toupper();
+ String B_lower = B.tolower(), B_upper = B.toupper();
+ cout << "tolower(A): " << A_lower.put_string() << "\n";
+ cout << "toupper(A): " << A_upper.put_string() << "\n";
+ cout << "tolower(B): " << B_lower.put_string() << "\n";
+ cout << "toupper(B): " << B_upper.put_string() << "\n";
+return 0; 
+}
+
+OUTPUT:
+
+
+
+EXPERIMENT- 13
+
+Aim: Write a program to overload unary increment(++) operator.
+
+CODE
+#include <iostream>
+using namespace std;
+ 
+class Integer {
+private:
+    int i;
+ 
+public:
+    Integer(int i = 0)
+    {
+        this->i = i;
+    }
+ 
+    // Overloading the postfix operator
+    Integer operator++(int)
+    {
+        Integer temp = *this;
+        ++i;
+        return temp;
+    }
+ 
+    void display(){
+        cout << "i = " << i << endl;
+    }
+};
+int main(){
+Integer i1(3);
+cout << "Before increment: ";
+    i1.display();
+Integer i2 = i1++;
+cout << "After post increment: " << endl;
+    cout << "i1: ";
+    i1.display();
+    cout << "i2: "; 
+    i2.display();
+}
+OUTPUT:
+
+
+
+EXPERIMENT- 14
+
+Aim: Write a program to overload new and delete operator.
+
+CODE
+#include<iostream>
+using namespace std;
+
+class Student {
+    string name;
+    int age;
+public:
+    void display() {
+        cout << "Name and Age of the Student is- " << name << " and " << age << endl;
+    }
+    Student(string nm,int ag) {
+        name=nm;        age=ag;
+    }
+    void * operator new(size_t size) {
+        cout << "Overloading new operator with size- " << size << endl;
+        void *a= ::operator new(size);
+        return a;
+    }
+    void operator delete(void *a) {
+        cout << "Overloading delete operator" << endl;
+        free(a);
+    }
+};
+
+int main() {
+    string nm;
+    int ag;
+    cout << "Enter name and age of the Student- ";
+    cin >> nm >> ag;
+    Student *s=new Student(nm,ag);
+    s->display();
+    delete s;
+    return 0;
+}
+
+OUTPUT:
+
+
+
+
+EXPERIMENT- 15
+
+
+Aim : Create a class basic_info with data members name, roll no., sex and two member function getdata and display. Derive a class physical_fit form basic_info which has data members height and weight and member functions getdata and displa. Display all the information using object of derived class.
+
+CODE
+#include<iostream>
+using namespace std;
+
+class Basic_Info {
+    string name;
+    int roll_no;
+    char sex;
+
+public:
+    void getdata1(string nm,int rn,char s) {
+        name=nm;
+        roll_no=rn;
+        sex=s;
+    }
+    void display1();
+};
+class Physical_Fit : public Basic_Info {
+    int height,weight;
+public:
+    void getdata2(int h,int w) {
+        height=h;       
+weight=w;
+    }
+    void display2();
+};
+
+void Basic_Info :: display1() {
+    cout << "Name is "<<name<<" , Roll no is "<<roll_no<<" and Sex is "<<sex<<endl;
+}
+
+void Physical_Fit :: display2() {
+    cout << "Height is "<<height<<" cm and weight is "<<weight<<" kg";
+}
+
+int main() {
+    string nm;
+    char s;
+    int rn,h,w;
+    cout << "Enter Name, Roll No, Sex, Height, Weight of Student:\n";
+    cin >> nm >> rn >> s >> h >> w;
+    Physical_Fit f;
+    f.getdata1(nm,rn,s);
+    f.getdata2(h,w);
+    f.display1();
+    f.display2();
+    return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 16
+
+
+Aim : Create class first with data members book no., book name and member function getdata and putdata. Create a class second with data members author name, publisher and member function getdata and showdata. Derive a class third from first and second with data member no. of pages and year of publication. Display all this information using array of objects of third class.
+
+CODE
+#include<iostream>
+using namespace std;
+
+class First {
+    int book_no;
+    string book_name;
+public:
+    void getdata1(int bn,string bnm) {
+        book_no=bn;     book_name=bnm;
+    }
+    void putdata();
+};
+
+class Second {
+    string author,publ;
+public:
+    void getdata2(string a,string p) {
+        author=a;       publ=p;
+    }
+    void showdata();
+};
+
+class Third : public First, public Second {
+    int no,year;
+public:
+    void getdata3(int n,int y) {
+        no=n;   year=y;
+    }
+    void display();
+};
+
+void First :: putdata() {
+    cout << "Book name and Book no. is- " << book_name << " and " << book_no << endl;
+}
+void Second :: showdata() {
+    cout << "Author name and Publisher is- " << author << " and " << publ << endl;
+}
+void Third :: display() {
+    cout << "No. of pages and Year of publication is " << no << " and " << year;
+}
+
+int main() {
+    int bn,npg,yop;
+    string bnm,au,pu;
+    cout << "Enter the Name, No., Author, Publisher, No. of pages and Year of "
+    << "Publication of the Book:\n";
+    cin >> bnm >> bn >> au >> pu >> npg >> yop;
+    Third t;
+    t.getdata1(bn,bnm);
+    t.getdata2(au,pu);
+    t.getdata3(npg,yop);
+    t.putdata();
+    t.showdata();
+    t.display();
+    return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 17
+
+Aim: Design three classes STUDENT, EXAM and RESULT. The STUDENT class has data members such as roll no, name. Create a class EXAM by inheriting the STUDENT class. The EXAM class adds data members representing the marks scored in six subjects. Derive the RESULT from the EXAM class and has its own data members such as total marks. WAP to model this relationship.
+
+
+CODE
+#include<iostream>
+using namespace std;
+class STUDENT{
+	private:
+	int roll_no;
+	string name;
+	public:
+		STUDENT(){
+		}
+		STUDENT(int roll, string n){
+		roll_no = roll;
+		name = n;	
+		}
+};
+class EXAM: public STUDENT{
+	private:
+		int * arr;
+		int number_of_subjects;
+	public:
+		EXAM(){
+		number_of_subjects  = 6;
+		arr = new int[number_of_subjects];	
+		}
+		int getMarks(){
+			cout<<"Enter student's marks for six subject\n";
+			for(int i=0; i<6; i++){
+				cout<<"Mark "<<(i+1)<<":"<<endl;
+				cin>>arr[i];
+			}
+			int sum = 0;
+			for(int i=0; i<6; i++){
+				sum += arr[i];
+			}
+			return sum;
+		}
+};
+class RESULT: public EXAM{
+	private:
+		int total_marks;
+	public:
+		int displayTotalMarks(){
+			int  p = getMarks();
+			
+		}
+};
+int main(){
+	RESULT t;
+cout<<t.getMarks();
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 18
+
+Aim: Create a base class called SHAPE. Use this class to store two double type values. Derive two specific classes called TRIANGLE and RECTANGLE from the base class. Add to the base class, a member function getdata to initialize base class data members and another member function display to compute and display the area of figures. Make display a virtual function and redefine this function in the derived class to suit their requirements. Using these three classes design a program that will accept driven of a TRIANGLE or RECTANGLE interactively and display the area.
+
+CODE
+#include<iostream>
+using namespace std;
+class Shape{
+    public: double a,b;
+        void get_data (){
+            cin>>a>>b;
+        }
+        virtual void display_area () = 0;
+};
+class Triangle:public Shape{
+public: 
+void display_area (){
+        cout<<"Area of triangle "<<0.5*a*b<<endl;
+    }
+};
+class Rectangle:public Shape{
+public: 
+void display_area (){
+        cout<<"Area of rectangle "<<a*b<<endl;
+    }
+};
+int main(){   
+    Triangle t;
+    Shape *st = &t;
+    cout<<"Enter base and altitude: ";
+    st->get_data();
+    st->display_area();
+    Rectangle r;
+    Shape *sr = &r;
+    cout<<"Enter length and breadth: ";
+    sr->get_data();
+    sr->display_area();
+    return 0; }
+OUTPUT:
+
+
+EXPERIMENT - 19
+
+Aim: Create a class called LIST with two pure virtual functions store() and retrieve(), to store a value called store and to retrieve call retreive function. Derive two classes stack and queue from it and override store and retrieve.
+
+CODE
+#include <iostream>
+using namespace std;
+const int MAX = 50;
+int list[MAX];
+int pos = 0;
+class List
+{
+ public:
+ virtual void store()
+ {
+ cout <<"\nList class store() called"<< endl;
+ cout <<"Enter value: ";
+ cin >> list[pos++];
+ cout <<"Value stored: "<< list[pos - 1] << endl;
+ }
+ virtual void retrieve()
+ {
+ int i;
+ cout <<"\nList class retrieve() called."<< endl;
+ cout <<"Enter the index: ";
+ cin >> i;
+ cout <<"Value retrieved: "<< list[i] << endl;
+ }
+};
+class STACK : public List
+{
+ public:
+ void store()
+ {
+ cout <<"\nSTACK class store() called."<< endl;
+ cout<<"Enter the value: ";
+ cin >> list[pos++];
+ cout <<"Value stored: "<< list[pos - 1] << endl;
+ }
+ void retrieve()
+ {
+ int i;
+ cout <<"\nSTACK class retrieve() called."<< endl;
+ cout <<"Enter the index: ";
+ cin >> i;
+ cout <<"Value retrieved: "<< list[i] << endl;
+ }
+};
+class QUEUE : public List{
+ public:
+ void store(){
+ cout <<"\nQUEUE class store() called."<< endl;
+ cout <<"Enter the value: ";
+ cin >> list[pos++];
+ cout <<"Value stored: "<< list[pos - 1] << endl;
+ }
+ void retrieve(){
+ int i;
+ cout <<"\nQUEUE class retrieve() called."<< endl;
+ cout <<"Enter the index: ";
+ cin >> i;
+ cout <<"Value retrieved: "<< list[i] << endl;
+ }
+};
+int main(){
+ List *list_ptr;
+ STACK s;
+ QUEUE q;
+ list_ptr = &s;
+ s.store();
+ q.store();
+ list_ptr->store();
+ list_ptr->retrieve();
+ return 0;
+}
+OUTPUT:
+
+
+
+
+
+EXPERIMENT - 20
+
+Aim: Write a program to define the function template for swapping two items of various datatypes such as integers, float and characters.
+
+CODE
+#include <iostream>
+using namespace std;
+template <class T>
+int swap_numbers(T& x, T& y){
+    T t;
+    t = x;
+    x = y;
+    y = t;
+    return 0;
+}
+int main(){
+    int a, b;
+    cout<<"Enter a and b :"<<endl;
+    cin>>a>>b;
+  // Invoking the swap()
+    swap_numbers(a, b);
+    cout<<"After swapping:"<<endl;
+    cout << a << " " << b << endl;
+    return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT - 21
+
+Aim: Write a program to define the function template for calculating the given squares of given numbers with different data types.
+
+CODE
+#include<iostream>
+using namespace std;
+
+template <class T>
+
+T square(T num){
+	return num * num;
+}
+
+int main(){
+	int int_num;
+	float float_num;
+	
+	cout << "Enter a integer number:\t";
+	cin >> int_num;
+	cout << "Squared integer number:\t" << square(int_num) << endl;
+	
+	cout << "Enter a floating-point number:\t";
+	cin >> float_num;
+	cout << "Squared floating-point number:\t" << square(float_num) << endl;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT - 22
+
+Aim: Write a program to illustrate how Template function can be overloaded.
+
+
+CODE
+#include <iostream>
+using namespace std;
+  
+template <class T>
+  
+// Template overloading of function
+void display(T t1){
+    cout << "Displaying Template: "
+         << t1 << "\n";
+}
+void display(int t1){
+    cout << "Display using overloading: "
+         << t1 << "\n";
+}
+  
+int main(){
+    
+    display(200);
+    display(12.40);
+    display("OOPS Labwork");
+  
+    return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 23
+
+Aim: Write a program to illustrate how to define and declare a class template for reading two data items from the keyboard and to find their sum.
+
+CODE
+#include <iostream>
+using namespace std;
+ 
+template<class t1,class t2>
+void sum(t1 a,t2 b) {
+    cout<<"\nSum="<<a+b<<endl;
+}
+ 
+int main(){
+    int a,b;
+    float x,y;
+    cout<<"\nEnter two integer data: ";
+    cin>>a>>b;
+    cout<<"\nEnter two float data: ";
+    cin>>x>>y;
+    sum(a,b); 
+    sum(x,y);      
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 24
+
+Aim: Write a program to demonstrate the use of special functions, constructor and destructor in the class template. The program is used to find the bigger of two numbers.
+
+CODE
+#include<iostream>
+using namespace std;
+class B;
+class A{
+ int a;
+ public:
+ A(int value){
+ cout<<"Constructor called for class A"<<endl;
+ a=value;
+ }
+ ~A(){
+cout<<"Destructor called for class A"<<endl;
+}
+friend void compare(A,B);
+};
+class B{
+ int b;
+ public:
+ B(int value){
+cout<<"Constructor called for class B"<<endl;
+b=value;
+}
+~B(){
+cout<<"Destructor called for class B"<<endl;
+ }
+ friend void compare(A,B);
+};
+void compare(A a1,B b1)
+{
+ if(a1.a > b1.b)
+ cout<<a1.a<<" is greater than "<<b1.b<<endl;
+ else if(a1.a < b1.b)
+ cout<<a1.a<<" is smaller than "<<b1.b<<endl;
+ else
+ cout<<a1.a<<" is equal to "<<b1.b<<endl;
+}
+int main(){
+ int n1,n2;
+ cout<<"Enter first number: ";
+ cin>>n1;
+ A a(n1);
+ cout<<"Enter second number: ";
+ cin>>n2;
+ B b(n2);
+ compare(a,b);
+ return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 25
+
+Aim: Write a program to raise an exception if any attempt is made to refer to an element whose index is beyond the array size
+
+CODE
+#include <iostream>
+#include <stdexcept>
+using namespace std;
+const int ARRAY_SIZE = 20;
+int array[ARRAY_SIZE];
+int main() {
+try {
+int index;
+cout << "Enter an index to access in the array: ";
+cin >> index;
+if (index < 0 || index >= ARRAY_SIZE) {
+  throw out_of_range("Index is out of range of the array size");
+}
+cout << "Value at index " << index << " is: " << array[index] << endl;
+} catch (out_of_range& e) {
+cout << "Error: " << e.what() << endl;
+}
+return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 26
+
+Aim: Write a program to read some set of lines from the keyboard and to store it in the specified file.
+
+CODE
+#include<iostream>
+#include<fstream>
+#include<stdio.h>
+using namespace std;
+int main(){
+ofstream file("newfile.txt");
+string s;
+cout<<"Enter the data:- "<<endl;
+getline(cin,s);
+file<<s;
+file.close();
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 27
+
+Aim: Write a program to read a text file and display its contents on the screen.
+
+CODE
+#include<iostream>
+#include<fstream>
+#include<stdio.h>
+using namespace std;
+int main()
+{
+    char fileName[50], ch;
+    fstream fp;
+    cout<<"Enter the name of the file: ";
+    gets(fileName);
+    fp.open(fileName, fstream::in);
+    if(!fp)
+    {
+        cout<<"\nError";
+        return 0;
+    }
+    cout<<"\nContent of "<<fileName<<":-\n";
+    while(fp>>noskipws>>ch)
+        cout<<ch;
+    fp.close();
+    cout<<endl;
+    return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 28
+
+Aim: Write a program to copy the contents of a file into another.
+
+CODE
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+ifstream in("Original.txt");
+ofstream f("copy.txt");
+while(!in.eof()){
+	string text;
+	getline(in, text);
+	f << text << endl;
+}
+return 0;
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 29
+
+Aim: Write a program to read two numbers and then divide the first no by second and raise an exception if the second number is zero.
+
+CODE
+#include <iostream>
+#include <stdexcept> 
+using namespace std;
+float Division(float num, float den)
+{
+	if (den == 0) {
+		throw runtime_error("Attempted to divide by Zero\n");
+	}
+return (num / den);
+} 
+int main()
+{
+	float numerator, denominator, result;
+	cout<<"Enter numerator and denominator: ";
+	cin>>numerator>>denominator;
+try {
+		result = Division(numerator, denominator);
+		cout << "The quotient is "<< result << endl;
+}
+	catch (runtime_error& e) {
+		cout << "Exception" << endl
+			<< e.what();
+	}
+}
+
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPERIMENT- 30
+
+Aim: Write a program to perform deletion of white spaces such as horizontal tabs, vertical tabs, space, line feed, new line and carriage return from a text file and store the contents of the file without the white spaces on another file.
+
+CODE
+#include <iostream>
+#include<fstream>
+using namespace std;
+int main(){
+ifstream file("prev.txt");
+ofstream f("next.txt");;
+char ch;
+int c= file.peek();
+while(!file.eof())
+{
+ch=file.get();
+if(ch == ' ' || ch == '\t' || ch == '\n' ||
+ch == '\r' || ch == '\f' || ch == '\v'||ch=='\0')
+{
+}
+else{
+
+f.put(ch);
+}
+c= file.peek();
+}
+cout<<"program executed"<<endl;
+return 0;
+}
+OUTPUT:
+
+
+
+
+
+
+EXPERIMENT- 31
+
+Aim: Write a program to read the class object of student info such as name, age, sex, height and weight from the keyboard and store them on a specified file using read() and write() functions. Again the same file is opened for reading the displaying the contents of the file on the screen.
+
+CODE
+#include<fstream>
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+class student_info{
+private:
+char name[20];
+int age;
+char sex;
+float height, weight;
+public:
+ void read() {
+ cout << "Enter name: ";
+ cin >> name;
+ cout << "Enter Age: ";
+ cin >> age;
+ cout << "Enter sex (M/F): ";
+ cin >> sex;
+ cout << "Enter height (in cms): ";
+ cin >> height;
+ cout << "Enter weight (in kgs): ";
+ cin >> weight;
+ }
+void write() {
+ cout << "Name" << name << endl;
+ cout << "Age:" << age << endl;
+ cout << "Sex:" << sex << endl;
+ cout << "Height:" << height << endl;
+ cout << "Weight:" << weight << endl;
+}
+};
+int main() {
+ int n;
+ cout << "Enter how many records to be stored: ";
+ cin >> n;
+ student_info s[n];
+ ofstream fout;
+ fout.open("data.txt");
+ for (int i = 0; i < n; i++) {
+ s[i].read();
+ fout.write((char * ) & s[i], sizeof(s[i]));
+ }
+ fout.close();
+ ifstream fin;
+ cout << "Displaying content of File: " << endl
+ fin.open("data.txt");
+ for (int i = 0; i < n; i++) {
+ while (fin.read((char * ) & s[i], sizeof(s[i]))) {
+ s[i].write();
+ }
+ }
+ fin.close();
+ return 0;
+}
+OUTPUT:
+
+
+
+
