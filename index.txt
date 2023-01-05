@@ -1,0 +1,230 @@
+﻿INDEX
+S.No.
+Name of Program
+Date of Performing
+Date of Checking
+Remarks
+Signature
+1.
+Write a program for multiplication of two matrices using OOPs.
+
+23/09/2022
+
+
+
+2.
+Create a class Student, which have data members as name, branch, roll no., age, sex, five subjects. Display the name of student and his percentage who has more than 70%. Use array of objects.
+
+23/09/2022
+
+
+
+3.
+Using the concept of function overloading, write function for calculating area of triangle, circle and rectangle.
+
+23/09/2022
+
+
+
+4.
+Create a class TIME with members hours, minutes and seconds. Take input, add two-time objects and passing objects to function and display the result.
+
+30/09/2022
+
+
+
+5.
+Write a program to find the greatest of two given numbers in two different classes using friend function.
+
+30/09/2022
+
+
+
+6.
+Write a program to find the biggest of three numbers using Friend Function.
+
+30/09/2022
+
+
+
+7.
+Write a program to demonstrate the use of friend function with Inline assignment.
+
+07/10/2022
+
+
+
+8.
+Write a program to find the sum of two numbers declared in a class and display the numbers and sum using friend class.
+
+07/10/2022
+
+
+
+9.
+Write a program to perform addition of two complex numbers using constructor overloading. The first constructor which takes no argument is used to create objects which are not initialized, second which takes one argument is used to initialize real and image parts to equal values and third which takes two arguments is used to initialize real and image to two different values.
+
+07/10/2022
+
+
+
+10.
+Write a program to generate a Fibonacci series using Copy Constructor.
+14/10/2022
+
+
+
+11.
+Create a class which keep track of number of its instances. Use static data member, constructors and destructors to maintain updated information about active objects.
+14/10/2022
+
+
+
+12.
+Implement a class String containing the following functions:
+    i. Overload + operator to carry out the concatenation of strings.
+ii. Overload = operator to carry out string copy.
+iii. Overload <= operator to carry out the comparison of strings.
+iv. Function to display the length of the string.
+v. Function toLower() to convert upper case to lower case.
+vi. Function toUpper() to convert lower case to upper case.
+14/10/2022
+
+
+
+13.
+Write a program to overload unary increment (++) operator.
+21/10/2022
+
+
+
+14.
+Write a program to overload new and delete operator.
+21/10/2022
+
+
+
+
+15.
+Create a class basic inZfo with data members name, roll no., sex and two-member function getdata and display. Derive a class physical_fit form basic_info which has data members height and weight and member functions getdata and display. Display all the information using object of derived class.
+
+21/10/2022
+
+
+
+
+16.
+Create class first with data members book no., book name and member function getdata and putdata. Create a class second with data members author name, publisher and member function getdata and showdata. Derive a class third from first and second with data member no. of pages and year of publication. Display all this information using array of objects of third class.
+28/10/2022
+
+
+
+
+17.
+Design three classes STUDENT, EXAM and RESULT. The STUDENT class has data members such as roll no, name. Create a class EXAM by inheriting the STUDENT class. The EXAM class adds data members representing the marks scored in six subjects. Derive the RESULT from the EXAM class and has its own data members such as total marks. WAP to model this relationship.
+28/10/2022
+
+
+
+
+18.
+Create a base class called SHAPE. Use this class to store two double type values. Derive two specific classes called TRIANGLE and RECTANGLE from the base class. Add to the base class, a member function getdata to initialize base class data members and another member function display to compute and display the area of figures. Make display a virtual function and redefine this function in the derived class to suit their requirements. Using these three classes design a program that will accept driven of a TRIANGLE or RECTANGLE interactively and display the area.
+
+28/10/2022
+
+
+
+
+19.
+Create a class called LIST with two pure virtual functions store() and retrieve(), to store a value called store and to retrieve call retrieve function. Derive two classes stack and queue from it and override store and retrieve.
+04/11/2022
+
+
+
+
+20.
+Write a program to define the function template for swapping two items of various datatypes such as integers, float and characters.
+04/11/2022
+
+
+
+
+21.
+Write a program to define the function template for calculating the given squares of given numbers with different data types.
+04/11/2022
+
+
+
+
+22.
+Write a program to illustrate how Template function can be overloaded.
+11/11/2022
+
+
+
+
+23.
+Write a program to illustrate how to define and declare a class template for reading two data items from the keyboard and to find their sum.
+11/11/2022
+
+
+
+
+24.
+Write a program to demonstrate the use of special functions, constructor and destructor in the class template. The program is used to find the bigger of two numbers.
+18/11/2022
+
+
+
+
+25.
+Write a program to raise an exception if any attempt is made to refer to an element whose index is beyond the array size.
+ 
+18/11/2022
+
+
+
+
+26.
+Write a program to read some set of lines from the keyboard and to store it in the specified file.
+25/11/2022
+
+
+
+
+27.
+Write a program to read a text file and display its contents on the screen.
+25/11/2022
+
+
+
+
+28.
+Write a program to copy the contents of a file into another.
+02/12/2022
+
+
+
+
+29.
+Write a program to read two numbers and then divide the first no by second and raise an exception if the second number is zero.
+02/12/2022
+
+
+
+
+30.
+Write a program to perform deletion of white spaces such as horizontal tabs, vertical tabs, space, line feed, new line and carriage return from a text file and store the contents of the file without the white spaces on another file.
+09/12/2022
+
+
+
+
+31.
+Write a program to read the class object of student info such as name, age, sex, height and weight from the keyboard and store them on a specified file using read () and write () functions. Again, the same file is opened for reading the displaying the contents of the file on the screen.
+09/12/2022
+
+
+
+
+
