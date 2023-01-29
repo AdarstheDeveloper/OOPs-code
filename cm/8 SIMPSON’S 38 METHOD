@@ -44,7 +44,6 @@ int main()
  integration = integration * stepSize*3.0/8.0;
 
  cout<< endl <<"Required value of integration is: "<< integration<<endl;
- cout<<"JANVI GULIYAN CST 006";
 
  return 0;
 }
