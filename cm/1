@@ -1,0 +1,47 @@
+#include <iostream>
+#include <conio.h>
+#include <math.h>
+using namespace std;
+float f(float x)
+{
+    return pow(x, 2) + x - 1;
+}
+float df(float x)
+{
+    return 2 * x + 1;
+}
+int main()
+{
+    cout<<"JANVI GULIYAN - CST - 006";
+    int i, maxitr, fixed;
+    float h, x0, x1, error;
+    cout << "Enter x0: ";
+    cin >> x0;
+    cout << "Enter Maximum Iterations: ";
+    cin >> maxitr;
+    cout << "Enter Allowed Error: ";
+    cin >> error;
+    cout<< endl<<"*********************"<< endl;
+     cout<<"Newton Raphson Method"<< endl;
+     cout<<"*********************"<< endl;
+
+    // cout << fixed;
+    for (i = 1; i <= maxitr; i++)
+    {
+        h = f(x0) / df(x0);
+        x1 = x0 - h;
+        cout << "Iteration no." << i
+             << "= " << x1 << endl;
+        if (fabs(h) < error)
+        {
+            cout << "After " << i << " iterations, root = "<< x1<<endl;
+            getch();
+            return 0;
+        }
+        x0 = x1;
+    }
+    cout << "Iterations not sufficient,"
+         << "Nnot convergent." << endl;
+    getch();
+    return 1;
+}
