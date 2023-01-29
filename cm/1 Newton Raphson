@@ -12,7 +12,6 @@ float df(float x)
 }
 int main()
 {
-    cout<<"JANVI GULIYAN - CST - 006";
     int i, maxitr, fixed;
     float h, x0, x1, error;
     cout << "Enter x0: ";
