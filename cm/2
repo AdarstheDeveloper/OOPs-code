@@ -1,0 +1,57 @@
+#include<iostream>
+#include<stdlib.h>
+#include<math.h>
+#include<iomanip>
+using namespace std;
+int itr=0;
+double f(double x){
+    return x*x + x-1;
+}
+double bisect(double a , double b,double err){
+    double x0 = (a+b)/2;
+    if(b-a<err){
+        itr++;
+        cout<<"After "<<setw(3)<<itr<<" Iteration a = "<<setw(10)<<a<<"\t b = "<<setw(10)<<b <<"\t x0 = "<<setw(10)<<x0<<endl;
+        cout<<"The Closest Root is :"<<(a+b)/2 <<endl;
+        
+        return 0;
+    }
+    else if(f(a)==0){
+        itr++;
+        cout<<"After "<<setw(3)<<itr<<" Iteration a = "<<setw(10)<<a<<"\t b = "<<setw(10)<<b <<"\t x0 = "<<setw(10)<<x0<<endl;
+        return a;
+    }
+    else if(f(b)==0){
+        itr++;
+        cout<<"After "<<setw(3)<<itr<<" Iteration a = "<<setw(10)<<a<<"\t b = "<<setw(10)<<b <<"\t x0 = "<<setw(10)<<x0<<endl;
+        return b;
+    }
+    else if(f(a)*f(x0)<0){
+        itr++;
+        cout<<"After "<<setw(3)<<itr<<" Iteration a = "<<setw(10)<<a<<"\t b = "<<setw(10)<<b <<"\t x0 = "<<setw(10)<<x0<<endl;
+        bisect(a,x0,err);
+    }
+    else if(f(x0)*f(b)<0){
+        itr++;
+        cout<<"After "<<setw(3)<<itr<<" Iteration a = "<<setw(10)<<a<<"\t b = "<<setw(10)<<b <<"\t x0 = "<<setw(10)<<x0<<endl;
+        bisect(x0,b,err);
+    }
+    else if((f(a)*f(x0)>0)&&(f(x0)*f(b))>0){
+        cout<<"The Root Does not Lie in this interval "<<endl;
+        return 0;
+    }
+}
+int main(){	
+    double a,b,err;
+    cout<<"Enter Start of Interval:";
+    cin>>a;
+    cout<<"Enter end of Interval:";
+    cin>>b;
+    cout<<"Enter Allowed Error:";
+    cin>>err;
+     cout<< endl<<"*********************"<< endl;
+     cout<<"Bisection Method"<< endl;
+     cout<<"*********************"<< endl;
+
+    bisect(a,b,err);
+}
