@@ -38,7 +38,6 @@ int main()
 		  sum = sum + multiply * y[i];
 	 }
 	 cout<< endl<<"Interpolated value at "<< xp<< " is "<< sum<<endl;
-     cout<<"JANVI GULIYAN CST 006";
 
 	 return 0;
 }
