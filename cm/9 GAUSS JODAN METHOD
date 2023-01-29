@@ -85,6 +85,5 @@ int main()
 			  }
 			  cout<< endl;
 		 }
-         cout<<endl<<"JANVI GULIYAN CST 006"<<endl;
 		 return(0);
 }
