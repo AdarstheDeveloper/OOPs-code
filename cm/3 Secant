@@ -12,8 +12,7 @@ using namespace std;
 int main()
 {
     float x0, x1, x2, f0, f1, f2, e;
-    int step = 1, N;
-    cout<<"JANVI GULIYAN CST 006";    
+    int step = 1, N;  
     cout << setprecision(6) << fixed;
     cout << "Enter first guess: ";
     cin >> x0;
