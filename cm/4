@@ -1,0 +1,44 @@
+#include<iostream>
+#include<conio.h>
+
+using namespace std;
+
+int main()
+{
+	 float x[100], y[100], xp, sum=0, multiply;
+	 int i,j,n;
+
+/*TAKING INPUT*/
+	 cout<<"Enter number of data: ";
+	 cin>>n;
+	 cout<<"Enter Value of x:"<< endl;
+	 for(i=0;i<n;i++)
+	 {
+		  cin>>x[i];
+	 }
+     cout<<"Enter Value of F(x): "<< endl;
+	 for(i=0;i<n;i++)
+	 {
+		  cin>>y[i];
+	 }
+	 cout<<"Enter interpolation point: ";
+	 cin>>xp;
+//Calculation
+
+	 for(i=0;i<n;i++)
+	 {
+		  multiply=1;
+		  for(j=0;j<n;j++)
+		  {
+			   if(i!=j)
+			   {
+			    	multiply = multiply* (xp - x[j])/(x[i] - x[j]);
+			   }
+		  }
+		  sum = sum + multiply * y[i];
+	 }
+	 cout<< endl<<"Interpolated value at "<< xp<< " is "<< sum<<endl;
+     cout<<"JANVI GULIYAN CST 006";
+
+	 return 0;
+}
