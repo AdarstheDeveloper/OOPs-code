@@ -1,0 +1,56 @@
+clc
+m=input(&quot;Enter the number of rows of first matrix: &quot;);
+n=input(&quot;Enter the number of columns of first matrix: &quot;);
+p=input(&quot;Enter the number of rows of second matrix: &quot;);
+q=input(&quot;Enter the number of columns of second matrix: &quot;);
+if n==p
+disp(&#39;Matrices are conformable for multiplication&#39;)
+else
+disp(&#39;Matrices are not conformable for multiplication&#39;)
+break;
+end
+disp(&#39;Enter the first matrix: &#39;)
+for i=1:m
+for j=1:n
+A(i,j)=input(&#39;\&#39;);
+end
+end
+disp(&#39;Enter the second matrix: &#39;)
+for i=1:p
+for j=1:q
+B(i,j)=input(&#39;\&#39;)
+end
+end
+C=zeros(m,q);
+for i=1:m
+for j=1:q
+for k=1:n
+C(i,j) = C(i,j)+A(i,k)*B(k,j);
+end
+end
+end
+disp(&#39;The first matrix is: &#39;)
+disp(A)
+disp(&#39;The second matrix is: &#39;)
+disp(B)
+disp(&#39;The product of two matrices is: &#39;)
+disp(C)
+
+// Matrix Multiplication using function
+clc
+function []=multiplication(m, n, p, q, A, B)
+C=zeros(m,n);
+ifn==p
+disp(&#39;Matrices are conformable for multiplication&#39;)
+else
+disp(&#39;Matrices are not conformable for multiplication&#39;)
+break;
+end
+C=A*B
+disp(&#39;The first matrix is&#39;)
+disp(A)
+disp(&#39;The Second matrix is&#39;)
+disp(B)
+disp(&#39;The multiplication of two matrices is&#39;)
+disp(C)
+endfunction

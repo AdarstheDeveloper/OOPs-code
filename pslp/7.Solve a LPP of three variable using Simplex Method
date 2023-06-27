@@ -1,0 +1,79 @@
+// Define the objective function coefficients
+c = [2; 3; 5];
+
+// Define the constraint coefficients
+A = [1, 2, 2;
+     3, 2, 1;
+     2, 5, 3];
+     
+// Define the right-hand side of the constraints
+b = [8; 10; 15];
+
+// Define the number of variables and constraints
+n = size(A, 2);
+m = size(A, 1);
+
+// Add slack variables
+A = [A, eye(m)];
+c = [c; zeros(m, 1)];
+
+// Construct the initial tableau
+tableau = [A, eye(m), b; c', 0];
+
+// Execute the Simplex Method
+while true
+    // Determine the pivot column
+    pivot_column = 0;
+    min_ratio = inf;
+    for i = 1:size(tableau, 2)-1
+        if tableau(end, i) < 0 && tableau(end-1, i) < min_ratio
+            min_ratio = tableau(end-1, i);
+            pivot_column = i;
+      
+  end
+    end
+    
+    if pivot_column == 0
+        break;  // Optimal solution found
+    end
+    
+    // Determine the pivot row
+    pivot_row = 0;
+    min_ratio = inf;
+    for i = 1:size(tableau, 1)-1
+        if tableau(i, pivot_column) > 0
+            ratio = tableau(i, end) / tableau(i, pivot_column);
+            if ratio < min_ratio
+                min_ratio = ratio;
+                pivot_row = i;
+            end
+        end
+    end
+    
+    if pivot_row == 0
+        error("Unbounded solution");  // No pivot row found
+    end
+    
+    // Pivot operation
+    pivot_element = tableau(pivot_row, pivot_column);
+    tableau(pivot_row, :) = tableau(pivot_row, :) / pivot_element;
+    
+    for i = 1:size(tableau, 1)
+        if i != pivot_row
+            tableau(i, :) = tableau(i, :) - tableau(i, pivot_column) * tableau(pivot_row, :);
+        end
+    end
+end
+
+
+// Extract the solution
+solution = tableau(1:n, end);
+
+// Display the optimal solution
+disp("Optimal solution:");
+for i = 1:n
+    disp(["x" string(i) ": " string(solution(i))]);
+end
+
+// Display the optimal objective value
+disp("Optimal objective value: " + string(-tableau(end, end)));

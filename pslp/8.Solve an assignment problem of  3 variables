@@ -1,0 +1,12 @@
+// Define the cost matrix
+C = [3 1 2; 4 2 1; 5 3 2];
+
+// Solve the assignment problem
+[min_cost, assignment] = Accenture(C);
+
+// Display the minimum cost
+disp("Minimum cost: " + string(min_cost));
+
+// Display the assignment matrix
+disp("Assignment matrix:");
+disp(assignment);

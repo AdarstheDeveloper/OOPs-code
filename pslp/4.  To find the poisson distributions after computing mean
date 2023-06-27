@@ -1,0 +1,21 @@
+clc
+clear
+disp(&quot;enter no of observation&quot;)
+n=input(&#39;\&#39;)
+disp(&quot;enter the vlaue of x&quot;)
+for i=1:n
+X(1,i)=input(&#39;\&#39;)
+end
+disp(&quot;enter no of frequency&quot;)
+for j=1:n
+F(1,j)=input(&#39;\&#39;)
+end
+disp(&quot;Mean of the distribution is&quot;)
+M=sum(F.*X)/sum(F)
+disp(M)
+for i=1:n
+P(1,i)=sum(F)*exp(-M)*M^(X(i))/factorial(X(i))
+end
+disp(&quot;Expected frequencies are&quot;)
+disp(P)
+plot2d(X,P)

@@ -1,0 +1,23 @@
+clc
+clear all
+disp(&quot;enter no of observation&quot;)
+n=input(&#39;\&#39;)
+disp(&quot;enter the vlaue of x&quot;)
+for i=1:n
+X(1,i)=input(&#39;\&#39;)
+end
+disp(&quot;enter no of frequency&quot;)
+for j=1:n
+F(1,j)=input(&#39;\&#39;)
+end
+disp(&quot;Mean of the distribution is&quot;)
+MEA=sum(F.*X)/sum(F)
+disp(MEA)
+p=MEA/n
+EF=sum(F)*binomial(p,n-1)
+disp(&quot;Given frequencies&quot;)
+disp(F)
+disp(&quot;Expected frequencies&quot;)
+disp(EF)
+plot2d3(0:n-1, F)
+plot2d(0:n-1,EF) 

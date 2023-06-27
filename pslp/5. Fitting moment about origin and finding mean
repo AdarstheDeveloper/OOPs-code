@@ -1,0 +1,23 @@
+clc
+clear
+term = input('Enter no. of terms:')
+disp("Enter x");
+for i = l : term
+    x(i) = input('/')
+end
+disp("Enter Y");
+for i = l : term
+    y(i) = input('/')
+end
+F = sum(y);
+Mean = sum(x.*y)/l;
+printf("Mean is %f \n",Mean)
+xu = x- Mean
+xul = xu
+for i = l:4
+    il (i>l)
+        xu = xu.*xul;
+    end
+    EF = sum(xu.*y);
+    printf("U%d: %f \n",i,(EF/F));
+endl

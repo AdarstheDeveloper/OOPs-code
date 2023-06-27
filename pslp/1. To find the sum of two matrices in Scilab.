@@ -1,0 +1,39 @@
+clc
+m = input(&quot;Enter the number of rows of matrix: &quot;);
+n = input(&quot;Enter the number of columns of matrix: &quot;);
+disp(&#39;Enter the first matrix&#39;)
+for i = 1:m
+for j = 1:n
+A(i,j) = input(&#39;\&#39;);
+end
+end
+disp(&#39;Enter the second matrix&#39;)
+for i = 1:m
+for j = 1:n
+B(i,j) = input(&#39;\&#39;)
+end
+end
+for i = 1:m
+for j = 1:n
+C(i,j) = A(i,j) + B(i,j);
+end
+end
+disp(&#39;The first matrix is:&#39;)
+disp(A)
+disp(&#39;The Second matrix is: &#39;)
+disp(B)
+disp(&#39;The sum of matrices is: &#39;)
+disp(C)
+// Matrix Addition (Using Function)
+clc
+function[]=addition(m, n, A, B)
+C=zeros(m,n);
+C=A+B;
+
+disp(&#39;The first matrix is&#39;)
+disp(A)
+disp(&#39;The Second matrix is&#39;)
+disp(B)
+disp(&#39;The sum of two matrices is&#39;)
+disp(C)
+endfunction
